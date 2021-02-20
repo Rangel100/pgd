@@ -42,4 +42,5 @@ public class DeviceDTO implements Serializable {
     @Size(max = 1)
     private String status;
     private Integer tydeid_Typedevice;
+    private String prueba;
 }
