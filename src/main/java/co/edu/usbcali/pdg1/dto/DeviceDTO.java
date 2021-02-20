@@ -43,4 +43,5 @@ public class DeviceDTO implements Serializable {
     private String status;
     private Integer tydeid_Typedevice;
     private String prueba;
+    private String rangel;
 }
