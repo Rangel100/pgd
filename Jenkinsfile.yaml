@@ -7,8 +7,6 @@ trigger:
     - development
     - hotfix
     - release/*
-pool:
-  vmImage: 'ubuntu-20.04'
 
 stages:
 - stage: Install_Java11
