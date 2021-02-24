@@ -2,11 +2,6 @@ trigger:
   branches:
     include:
     - master
-    exclude:
-    - feature/*
-    - development
-    - hotfix
-    - release/*
 
 stages:
 - stage: Install_Java11
