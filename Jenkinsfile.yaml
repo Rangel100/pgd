@@ -1,0 +1,17 @@
+pipeline {
+  agent any
+  stages{
+    stage ('log jenkins maven docker git and java version info'){
+      steps{
+        sh 'maven -version'
+        sh 'java -version'
+        sh 'git --version'
+      }
+    }
+    stage ('github jenkins maven build'){
+      steps{
+        sh 'maven clean compile test install'
+      }
+    }
+  }
+}
