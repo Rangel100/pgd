@@ -1,7 +1,8 @@
 trigger:
-  branches:
-    include:
-    - master
+- 'master'
+
+pool:
+  vmImage: 'ubuntu-20.04'
 
 stages:
 - stage: Install_Java11
@@ -15,7 +16,7 @@ stages:
         versionSpec: '11'
         jdkArchitectureOption: 'x64'
         jdkSourceOption: 'PreInstalled'
-        
+
 - stage: Clean
   displayName: Clean
   dependsOn: Install_Java11
@@ -32,7 +33,7 @@ stages:
         jdkArchitectureOption: 'x64'
         publishJUnitResults: false
         goals: 'clean'
- 
+
 - stage: Compile
   displayName: Compile Sources
   dependsOn: Clean
