@@ -10,7 +10,7 @@ pipeline {
     stage("build"){
     
       steps {
-        echo 'building for ${PRODUCTOR}'
+        echo "building for ${PRODUCTOR}"
         echo 'building ...'
         
       }
