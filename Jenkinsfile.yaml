@@ -1,59 +1,12 @@
-#stages:
-#- stage: Install_Java11
-#  displayName: Install Java11
-#  jobs:
-#  - job: Install_Java11
-#    displayName: Install_Java11
-#    steps:
-#    - task: JavaToolInstaller@0
-#      inputs:
-#        versionSpec: '11'
-#        jdkArchitectureOption: 'x64'
-#        jdkSourceOption: 'PreInstalled'
-#
-#- stage: Clean
-#  displayName: Clean
-#  dependsOn: Install_Java11
-#  jobs:
-#  - job: Clean_Sources
-#    displayName: Clean Sources
-#    steps:
-#    - task: Maven@3
-#      inputs:
-#        mavenPomFile: 'pom.xml'
-#        mavenOptions: '-Xmx3072m'
-#        javaHomeOption: 'JDKVersion'
-#        jdkVersionOption: '11'
-#        jdkArchitectureOption: 'x64'
-#        publishJUnitResults: false
-#        goals: 'clean'
-#
-#- stage: Compile
-#  displayName: Compile Sources
-#  dependsOn: Clean
-#  jobs:
-#  - job: Compile
-#    displayName: Compile
-#    steps:
-#    - task: Maven@3
-#      inputs:
-#        mavenPomFile: 'pom.xml'
-#        mavenOptions: '-Xmx3072m'
-#        javaHomeOption: 'JDKVersion'
-#        jdkVersionOption: '11'
-#        jdkArchitectureOption: 'x64'
-#        publishJUnitResults: false
-#        goals: 'compile -DskipTests=true'
-
-pipeline{
+pipeline {
 
   agent any
   
-  stages{
+  stages {
   
     stage("build"){
     
-      steps{
+      steps {
       
         echo 'building the application'
         
