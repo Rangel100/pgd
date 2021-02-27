@@ -2,6 +2,9 @@ pipeline {
   agent any
   environment {
     PRODUCTOR = 'Steven'
+    SONAR_LOGIN = '5b2f443a52f56197d92dff75e806da24b40889ba'
+    SONAR_ORGANIZATION = 'stevenc23-org'
+    SONAR_URL = 'https://sonarcloud.io'
   }
   tools{
     maven 'Maven3'
@@ -37,7 +40,7 @@ pipeline {
     stage("SonarCloud"){
       steps {
         echo "SonarCloud for ${PRODUCTOR}"
-        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+        sh "mvn sonar:sonar -Dsonar.projectKey=Pdg -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_LOGIN} \ -Dsonar.organization=${SONAR_ORGANIZATION}"
       }
     }
     
