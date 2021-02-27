@@ -12,21 +12,18 @@ pipeline {
     stage("Clean"){
       steps {
         echo "Clean for ${PRODUCTOR}"
-        sh 'mvn clean'
       }
     }
     
     stage("Compile"){
       steps {
         echo "Compile for ${PRODUCTOR}"
-        sh 'mvn compile'
       }
     }
     
     stage("Test"){
       steps {
         echo "Test for ${PRODUCTOR}"
-        sh 'mvn test'
       }
     }
     
@@ -34,6 +31,13 @@ pipeline {
       steps {
         echo "Test for ${PRODUCTOR}"
         echo 'firebase deploy ...'
+      }
+    }
+    
+    stage("SonarCloud"){
+      steps {
+        echo "SonarCloud for ${PRODUCTOR}"
+        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
       }
     }
     
