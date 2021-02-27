@@ -1,14 +1,17 @@
 pipeline {
 
   agent any
+  environment {
+    PRODUCTOR = 'Steven'
+  }
   
   stages {
   
     stage("build"){
     
       steps {
-      
-        sh 'mvn clean'
+        echo 'building for ${PRODUCTOR}'
+        echo 'building ...'
         
       }
       
