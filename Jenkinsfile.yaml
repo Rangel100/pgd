@@ -40,7 +40,7 @@ pipeline {
     stage("SonarCloud"){
       steps {
         echo "SonarCloud for ${PRODUCTOR}"
-        sh "mvn sonar:sonar -Dsonar.projectKey=Pdg -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_LOGIN} \ -Dsonar.organization=${SONAR_ORGANIZATION}"
+        sh "mvn sonar:sonar -Dsonar.projectKey=Pdg -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_LOGIN} -Dsonar.organization=${SONAR_ORGANIZATION}"
       }
     }
     
