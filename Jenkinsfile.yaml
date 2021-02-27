@@ -19,7 +19,7 @@ pipeline {
     stage("Compile"){
       steps {
         echo "Compile for ${PRODUCTOR}"
-        sh 'mvn install'
+        sh 'mvn compile'
       }
     }
     
