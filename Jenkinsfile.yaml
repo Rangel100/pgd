@@ -1,22 +1,33 @@
 pipeline {
-
   agent any
   environment {
     PRODUCTOR = 'Steven'
   }
-  
+  tools{
+    maven 'Maven3'
+  }
   stages {
   
-    stage("build"){
-    
+    stage("Clean"){
       steps {
-        echo "building for ${PRODUCTOR}"
-        echo 'building ...'
-        
+        echo "Clean for ${PRODUCTOR}"
+        sh 'mvn clean'
       }
-      
+    }
+    
+    stage("Install"){
+      steps {
+        echo "Intall for ${PRODUCTOR}"
+        sh 'mvn install'
+      }
+    }
+    
+    stage("Test"){
+      steps {
+        echo "Test for ${PRODUCTOR}"
+        sh 'mvn test'
+      }
     }
     
   }
-  
 }
