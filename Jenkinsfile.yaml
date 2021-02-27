@@ -16,9 +16,9 @@ pipeline {
       }
     }
     
-    stage("Install"){
+    stage("Compile"){
       steps {
-        echo "Intall for ${PRODUCTOR}"
+        echo "Compile for ${PRODUCTOR}"
         sh 'mvn install'
       }
     }
