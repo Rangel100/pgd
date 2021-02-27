@@ -33,7 +33,7 @@ pipeline {
     stage("Deploy fire base"){
       steps {
         echo "Test for ${PRODUCTOR}"
-        echo 'firebase deploy ...
+        echo 'firebase deploy ...'
       }
     }
     
